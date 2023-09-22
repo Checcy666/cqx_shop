@@ -1,0 +1,4 @@
+# Project exclude paths
+/cqx_order/target/
+/cqx_user/target/
+/shop_common/target/
