@@ -75,11 +75,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
     }
 
-    @Override
+    /*@Override
     public String login(String username, String password) {
         String token = null;
         //密码需要客户端加密后传递
-        /*try {
+        try {
             UserDetails userDetails = loadUserByUsername(username);
             if(!passwordEncoder.matches(password,userDetails.getPassword())){
                 throw new BadCredentialsException("密码不正确");
@@ -90,19 +90,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         } catch (AuthenticationException e) {
             LOGGER.warn("登录异常:{}", e.getMessage());
         }
-        return token;*/
+        return token;
 
-    }
+    }*/
 
-    @Override
+    /*@Override
     public UserDetails loadUserByUsername(String username) {
-        /*User user = getByUsername(username);
+        User user = getByUsername(username);
         if(user!=null){
             return new MemberDetails(user);
         }
-        throw new UsernameNotFoundException("用户名或密码错误");*/
+        throw new UsernameNotFoundException("用户名或密码错误");
         //验证用户名与密码匹配
-    }
+    }*/
 
     /*private User getByUsername(String username) {
         User user = userCacheService.getUser(username);
