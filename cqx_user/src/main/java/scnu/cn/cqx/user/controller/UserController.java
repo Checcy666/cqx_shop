@@ -6,8 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.Assert;
-import org.springframework.validation.annotation.Validated;
+
 import org.springframework.web.bind.annotation.*;
 import scnu.cn.cqx.common.api.CommonResult;
 import scnu.cn.cqx.user.model.User;
@@ -19,8 +18,7 @@ import scnu.cn.cqx.user.service.UserCacheService;
 import scnu.cn.cqx.user.service.UserService;
 
 import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Map;
+
 
 /**
  * @author chenqianxin
@@ -38,8 +36,8 @@ public class UserController {
     @Autowired
     private UserCacheService userCacheService;
 
-    @PostMapping(value = "/register")
-    @ApiOperation("用户注册")
+    @PostMapping(value = "/registerCommmon")
+    @ApiOperation("普通用户注册")
     public CommonResult<User> register(@Valid @RequestBody UserRegistReq userRegistReq){
         //查看是否存在相同用户名
         User exitUser = userService.getByName(userRegistReq.getUsername());

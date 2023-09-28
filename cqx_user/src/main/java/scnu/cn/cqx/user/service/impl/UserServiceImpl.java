@@ -3,6 +3,7 @@ package scnu.cn.cqx.user.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
@@ -10,7 +11,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.util.CollectionUtils;
 import scnu.cn.cqx.common.api.CommonResult;
 import scnu.cn.cqx.user.mapper.UserMapper;
 import scnu.cn.cqx.user.model.User;
@@ -33,6 +33,8 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserCacheService userCacheService;
+    @Autowired
+    private static ApplicationContext applicationContext;
 
     @Override
     public User register(UserRegistReq userRegistReq) {
@@ -75,7 +77,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
     }
 
-    /*@Override
+    @Override
     public String login(String username, String password) {
         String token = null;
         //密码需要客户端加密后传递
@@ -92,30 +94,44 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         return token;
 
-    }*/
+    }
 
-    /*@Override
+    /**
+     * 验证用户名和密码匹配
+     * @param username 用户名
+     * @return
+     */
+    @Override
     public UserDetails loadUserByUsername(String username) {
         User user = getByUsername(username);
         if(user!=null){
-            return new MemberDetails(user);
+
+//            List<UmsResource> resourceList = getResourceList(admin.getId());
+//            return new AdminUserDetails(admin,resourceList);
         }
         throw new UsernameNotFoundException("用户名或密码错误");
-        //验证用户名与密码匹配
-    }*/
+    }
 
-    /*private User getByUsername(String username) {
+    public User getByUsername(String username) {
         User user = userCacheService.getUser(username);
-        if(user!=null)
+        //先从缓存中获取数据
+        if (user != null){
             return user;
-        *//*UmsMemberExample example = new UmsMemberExample();
-        example.createCriteria().andUsernameEqualTo(username);
-        List<UmsMember> memberList = memberMapper.selectByExample(example);
-        if (!CollectionUtils.isEmpty(memberList)) {
-            member = memberList.get(0);
-            memberCacheService.setMember(member);
-            return member;
-        }*//*
+        }
+        //缓存中没有从数据库中获取
+        List<User> userList = userMapper.getByUsername(username);
+        if (userList != null && userList.size() > 0) {
+            user = userList.get(0);
+            //将数据库中的数据存入缓存中
+            getCacheService().setUser(user);
+            return user;
+        }
         return null;
-    }*/
+    }
+
+    @Override
+    public UserCacheService getCacheService() {
+        return applicationContext.getBean(UserCacheService.class);
+        //return SpringUtil.getBean(UmsAdminCacheService.class);
+    }
 }

@@ -20,6 +20,11 @@ public class User implements Serializable {
     private Long id;
 
     /**
+     * 用户类别:1-普通用户,2-商家，3-管理员
+     */
+    private String role;
+
+    /**
      * 用户名
      */
     private  String username;
@@ -27,16 +32,12 @@ public class User implements Serializable {
     /**
      * 用户密码
      */
-
     private String password;
 
     /**
      * 手机号码
      */
     private String telephone;
-
-    /*昵称
-    private String nickname;*/
 
     /**
      * 注册时间
@@ -59,6 +60,14 @@ public class User implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getUsername() {
