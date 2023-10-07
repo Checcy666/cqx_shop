@@ -30,7 +30,7 @@ public interface UserService extends IService<User>{
      * @param password 密码
      * @return 生成的JWT的token
      */
-    String login(String username, String password);
+    String login(String username, String password, String role);
 
     /**
      * 获取用户信息

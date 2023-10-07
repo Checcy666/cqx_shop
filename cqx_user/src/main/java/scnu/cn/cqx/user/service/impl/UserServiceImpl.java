@@ -2,6 +2,8 @@ package scnu.cn.cqx.user.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -11,7 +13,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
 import scnu.cn.cqx.common.api.CommonResult;
+import scnu.cn.cqx.security.util.JwtTokenUtil;
 import scnu.cn.cqx.user.mapper.UserMapper;
 import scnu.cn.cqx.user.model.User;
 import scnu.cn.cqx.user.model.req.UserRegistReq;
@@ -28,6 +32,8 @@ import java.util.List;
  */
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
     @Autowired
+    private JwtTokenUtil jwtTokenUtil;
+    @Autowired
     private UserMapper userMapper;
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -36,6 +42,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     @Autowired
     private static ApplicationContext applicationContext;
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
+
+    /**
+     * 注册
+     * @param userRegistReq
+     * @return
+     */
     @Override
     public User register(UserRegistReq userRegistReq) {
         User newUser = new User();
@@ -78,7 +91,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     }
 
     @Override
-    public String login(String username, String password) {
+    public String login(String username, String password, String role) {
         String token = null;
         //密码需要客户端加密后传递
         try {

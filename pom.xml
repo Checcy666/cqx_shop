@@ -12,6 +12,7 @@
     <module>shop_common</module>
     <module>cqx_user</module>
     <module>cqx_order</module>
+    <module>cqx_security</module>
   </modules>
 
   <name>cqx_shop</name>
@@ -114,10 +115,17 @@
       <version>5.1.7.RELEASE</version>
     </dependency>
     <!-- 集成JWT-->
+    <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
     <dependency>
       <groupId>com.auth0</groupId>
       <artifactId>java-jwt</artifactId>
-      <version>3.10.3</version>
+      <version>3.14.0</version>
+    </dependency>
+    <!--Hutool Java工具包-->
+    <dependency>
+      <groupId>cn.hutool</groupId>
+      <artifactId>hutool-all</artifactId>
+      <version>5.8.9</version>
     </dependency>
   </dependencies>
 

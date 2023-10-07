@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>scnu.cn.cqx</groupId>
-  <artifactId>cqx_user</artifactId>
+  <artifactId>cqx_security</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <parent>
@@ -14,7 +14,7 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <name>cqx_user</name>
+  <name>cqx_security</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,17 +23,17 @@
   </properties>
 
   <dependencies>
-      <dependency>
-          <groupId>scnu.cn.cqx</groupId>
-          <artifactId>shop_common</artifactId>
-          <version>1.0-SNAPSHOT</version>
-          <scope>compile</scope>
-      </dependency>
-      <dependency>
-          <groupId>scnu.cn.cqx</groupId>
-          <artifactId>cqx_security</artifactId>
-          <version>1.0-SNAPSHOT</version>
-          <scope>compile</scope>
-      </dependency>
+    <dependency>
+      <groupId>scnu.cn.cqx</groupId>
+      <artifactId>shop_common</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.jsonwebtoken</groupId>
+      <artifactId>jjwt</artifactId>
+      <version>0.9.1</version>
+    </dependency>
   </dependencies>
+
 </project>

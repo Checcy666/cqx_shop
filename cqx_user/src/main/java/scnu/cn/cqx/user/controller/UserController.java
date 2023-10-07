@@ -1,5 +1,6 @@
 package scnu.cn.cqx.user.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.github.pagehelper.util.StringUtil;
 import io.swagger.annotations.Api;
@@ -18,6 +19,8 @@ import scnu.cn.cqx.user.service.UserCacheService;
 import scnu.cn.cqx.user.service.UserService;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -29,6 +32,7 @@ import javax.validation.Valid;
 public class UserController {
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
+
     @Value("${jwt.tokenHead}")
     private String tokenHead;
     @Autowired
@@ -62,18 +66,33 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    @ApiOperation("登录")
-    public CommonResult login(UserLoginReq userLoginReq){
+    @ApiOperation("用户登录")
+    public CommonResult userLogin(UserLoginReq userLoginReq){
         //登录超时
-        String token = userService.login(userLoginReq.getUsername(),userLoginReq.getPassword());
+        String token = userService.login(userLoginReq.getUsername(),userLoginReq.getPassword(),"1");
         if (token == null) {
             return CommonResult.validateFailed("用户名或密码错误");
         }
-        /*Map<String, String> tokenMap = new HashMap<>();
+        //下面三行有什么用
+        Map<String, String> tokenMap = new HashMap<>();
         tokenMap.put("token", token);
         tokenMap.put("tokenHead", tokenHead);
-        return CommonResult.success(tokenMap);*/
-        return CommonResult.success("登录成功");
+        return CommonResult.success("用户登录成功");
+    }
+
+    @PostMapping(value = "/login")
+    @ApiOperation("商家登录")
+    public CommonResult shopLogin(UserLoginReq userLoginReq){
+        //登录超时
+        String token = userService.login(userLoginReq.getUsername(),userLoginReq.getPassword(),"2");
+        if (token == null) {
+            return CommonResult.validateFailed("用户名或密码错误");
+        }
+        //下面三行有什么用
+        Map<String, String> tokenMap = new HashMap<>();
+        tokenMap.put("token", token);
+        tokenMap.put("tokenHead", tokenHead);
+        return CommonResult.success("商家登录成功");
     }
 
     @PostMapping(value = "/logout")
@@ -109,7 +128,7 @@ public class UserController {
 
     //对输入的验证码进行校验
     private boolean verifyAuthCode(String authCode, String telephone){
-        //将StrUti改成StringUtil
+        //将StrUtil改成StringUtil
         if(StringUtil.isEmpty(authCode)){
             return false;
         }
