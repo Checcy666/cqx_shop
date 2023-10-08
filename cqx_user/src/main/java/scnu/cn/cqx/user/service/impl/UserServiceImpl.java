@@ -118,7 +118,6 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public UserDetails loadUserByUsername(String username) {
         User user = getByUsername(username);
         if(user!=null){
-
 //            List<UmsResource> resourceList = getResourceList(admin.getId());
 //            return new AdminUserDetails(admin,resourceList);
         }

@@ -1,26 +1,25 @@
 package scnu.cn.cqx.user.model;
 
-
 import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 import java.util.Date;
 
 /**
+ * 用户信息表
  * @author chenqianxin
  * @date 2023/9/20 10:01
  */
 
-@TableName("shop_user")
+@TableName("user")
 public class User implements Serializable {
     /**
      * 用户id
      */
-    private Long id;
+    private Long userId;
 
     /**
-     * 用户类别:1-普通用户,2-商家，3-管理员
+     * 用户类别:1-普通用户,2-管理员
      */
     private String role;
 
@@ -50,16 +49,16 @@ public class User implements Serializable {
     private Date loginTime;
 
     /**
-     * 帐号启用状态：0->禁用；1->启用
+     * 帐号启用状态：0-禁用；1-启用
      */
     private Integer status;
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getRole() {

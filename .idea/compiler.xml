@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="cqx_order" />
-        <module name="shop_common" />
+        <module name="cqx_shop" />
         <module name="cqx_user" />
+        <module name="cqx_security" />
+        <module name="cqx_common" />
       </profile>
     </annotationProcessing>
   </component>
