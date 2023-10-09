@@ -131,6 +131,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
             return user;
         }
         //缓存中没有从数据库中获取
+        //todo getByUsername
         List<User> userList = userMapper.getByUsername(username);
         if (userList != null && userList.size() > 0) {
             user = userList.get(0);

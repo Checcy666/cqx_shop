@@ -2,8 +2,8 @@ package scnu.cn.cqx.user.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import scnu.cn.cqx.common.service.RedisService;
 import scnu.cn.cqx.user.model.User;
-import scnu.cn.cqx.user.service.RedisService;
 import scnu.cn.cqx.user.service.UserCacheService;
 import scnu.cn.cqx.user.service.UserService;
 

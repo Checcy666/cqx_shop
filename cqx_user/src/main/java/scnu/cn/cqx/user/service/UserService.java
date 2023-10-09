@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import scnu.cn.cqx.user.model.User;
 import scnu.cn.cqx.user.model.req.UserRegistReq;
 
-
 /**
  * @author chenqianxin
  * @date 2023/9/20 11:04
  */
+
 @Service
 public interface UserService extends IService<User>{
 

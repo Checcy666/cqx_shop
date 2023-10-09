@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import scnu.cn.cqx.common.api.CommonResult;
+import scnu.cn.cqx.user.model.req.UserLoginReq;
+import scnu.cn.cqx.user.service.ShopService;
 
 /**
  * @author chenqianxin
@@ -14,6 +16,7 @@ import scnu.cn.cqx.common.api.CommonResult;
 @RestController
 @Api(tags = {"商家管理接口"})
 public class ShopController {
+    private ShopService shopService;
 
     @PostMapping(value = "/login")
     @ApiOperation("商家登录")
@@ -28,5 +31,5 @@ public class ShopController {
         tokenMap.put("token", token);
         tokenMap.put("tokenHead", tokenHead);
         return CommonResult.success("商家登录成功");
-    }
+    }*/
 }

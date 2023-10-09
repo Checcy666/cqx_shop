@@ -1,6 +1,5 @@
 package scnu.cn.cqx.user.controller;
 
-import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.github.pagehelper.util.StringUtil;
 import io.swagger.annotations.Api;
@@ -22,11 +21,11 @@ import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
-
 /**
  * @author chenqianxin
  * @date 2023/9/20 10:59
  */
+
 @RestController
 @Api(tags = {"用户管理接口"})
 public class UserController {
