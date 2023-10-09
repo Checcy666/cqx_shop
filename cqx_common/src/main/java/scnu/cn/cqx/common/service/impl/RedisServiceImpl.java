@@ -1,8 +1,8 @@
 package scnu.cn.cqx.common.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import scnu.cn.cqx.common.service.RedisService;
 import org.springframework.data.redis.core.RedisTemplate;
+import scnu.cn.cqx.common.service.RedisService;
 
 import java.util.List;
 import java.util.Map;
@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * Redis操作实现类
  * @author chenqianxin
- * @date 2023/9/20 10:25
+ * @date 2023/10/9 9:08
  */
 
-public class RediserviceImpl implements RedisService {
+public class RedisServiceImpl implements RedisService {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 

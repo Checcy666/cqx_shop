@@ -80,20 +80,7 @@ public class UserController {
         return CommonResult.success("用户登录成功");
     }
 
-    /*@PostMapping(value = "/login")
-    @ApiOperation("商家登录")
-    public CommonResult shopLogin(UserLoginReq userLoginReq){
-        //登录超时
-        String token = userService.login(userLoginReq.getUsername(),userLoginReq.getPassword());
-        if (token == null) {
-            return CommonResult.validateFailed("用户名或密码错误");
-        }
-        //下面三行有什么用
-        Map<String, String> tokenMap = new HashMap<>();
-        tokenMap.put("token", token);
-        tokenMap.put("tokenHead", tokenHead);
-        return CommonResult.success("商家登录成功");
-    }*/
+
 
     @PostMapping(value = "/logout")
     @ApiOperation("退出登录")

@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 通用分页数据封装类
  * @author chenqianxin
- * @date 2023/9/19 17:09
+ * @date 2023/10/9 9:07
  */
 
 public class CommonPage<T> {
@@ -100,3 +100,4 @@ public class CommonPage<T> {
         this.total = total;
     }
 }
+

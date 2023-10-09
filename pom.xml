@@ -9,10 +9,9 @@
   <version>1.0-SNAPSHOT</version>
 
   <modules>
-    <module>shop_common</module>
     <module>cqx_user</module>
-    <module>cqx_order</module>
     <module>cqx_security</module>
+    <module>cqx_common</module>
   </modules>
 
   <name>cqx_shop</name>

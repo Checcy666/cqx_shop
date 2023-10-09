@@ -5,6 +5,7 @@ package scnu.cn.cqx.common.api;
  * @author chenqianxin
  * @date 2023/9/20 11:22
  */
+
 public interface IErrorCode {
     /**
      * 返回码
@@ -17,4 +18,3 @@ public interface IErrorCode {
     String getMessage();
 
 }
-

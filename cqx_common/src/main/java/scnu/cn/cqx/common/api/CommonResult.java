@@ -3,8 +3,9 @@ package scnu.cn.cqx.common.api;
 /**
  * 通用返回结果封装类
  * @author chenqianxin
- * @date 2023/9/20 11:21
+ * @date 2023/10/9 9:09
  */
+
 public class CommonResult<T> {
     /**
      * 状态码

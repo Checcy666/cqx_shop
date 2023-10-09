@@ -1,4 +1,4 @@
-package scnu.cn.cqx.shop.model;
+package scnu.cn.cqx.user.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 

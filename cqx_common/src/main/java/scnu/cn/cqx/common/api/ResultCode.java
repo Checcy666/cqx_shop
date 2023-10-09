@@ -3,8 +3,9 @@ package scnu.cn.cqx.common.api;
 /**
  * API返回码封装类
  * @author chenqianxin
- * @date 2023/9/20 11:22
+ * @date 2023/10/9 9:11
  */
+
 public enum ResultCode implements IErrorCode {
     /**
      *五个状态
@@ -33,4 +34,5 @@ public enum ResultCode implements IErrorCode {
         return message;
     }
 }
+
 
