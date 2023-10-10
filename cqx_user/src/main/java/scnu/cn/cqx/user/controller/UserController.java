@@ -31,7 +31,6 @@ import java.util.Map;
 public class UserController {
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
-
     @Value("${jwt.tokenHead}")
     private String tokenHead;
     @Autowired
@@ -39,7 +38,7 @@ public class UserController {
     @Autowired
     private UserCacheService userCacheService;
 
-    @PostMapping(value = "/registerCommmon")
+    @PostMapping(value = "/register")
     @ApiOperation("普通用户注册")
     public CommonResult<User> register(@Valid @RequestBody UserRegistReq userRegistReq){
         //查看是否存在相同用户名
@@ -80,7 +79,6 @@ public class UserController {
     }
 
 
-
     @PostMapping(value = "/logout")
     @ApiOperation("退出登录")
     public CommonResult logout(){
@@ -96,7 +94,7 @@ public class UserController {
     @PostMapping(value = "/updatePassword")
     @ApiOperation("修改密码")
     public void updatePassword(@Valid @RequestBody UpdatePasswordReq updatePasswordReq) {
-        userService.updatePassword(updatePasswordReq.getUserId(), updatePasswordReq.getOldPwd(), updatePasswordReq.getNewPwd());
+        userService.updatePassword(updatePasswordReq.getId(), updatePasswordReq.getOldPwd(), updatePasswordReq.getNewPwd());
     }
 
     @PostMapping(value = "/update")

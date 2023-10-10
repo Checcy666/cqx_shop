@@ -26,7 +26,8 @@ public class UpdatePasswordReq {
     @ApiModelProperty(value = "新密码", required = true)
     private String newPwd;
 
-    @NotNull(message = "用户id不能为空")
-    @ApiModelProperty(value = "用户id", required = true)
-    private Long userId;
+    @NotNull(message = "id不能为空")
+    @ApiModelProperty(value = "id", required = true)
+    private Long id;
+
 }

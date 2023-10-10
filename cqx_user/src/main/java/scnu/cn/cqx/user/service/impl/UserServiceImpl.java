@@ -56,6 +56,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         newUser.setPassword(userRegistReq.getPassword());
         newUser.setTelephone(userRegistReq.getTelephone());
         newUser.setStatus(1);
+        newUser.setRole("1");
         newUser.setCreateTime(new Date(System.currentTimeMillis()));
         //将密码进行加密操作
         String encodePassword = passwordEncoder.encode(newUser.getPassword());
@@ -147,4 +148,5 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         return applicationContext.getBean(UserCacheService.class);
         //return SpringUtil.getBean(UmsAdminCacheService.class);
     }
+
 }

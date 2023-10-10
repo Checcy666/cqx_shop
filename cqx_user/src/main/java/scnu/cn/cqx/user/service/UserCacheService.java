@@ -11,17 +11,17 @@ import scnu.cn.cqx.user.model.User;
 public interface UserCacheService {
 
     /**
-     * 删除会员用户缓存
+     * 删除用户缓存
      */
     void delUser(Long userId);
 
     /**
-     * 获取会员用户缓存
+     * 获取用户缓存
      */
     User getUser(String username);
 
     /**
-     * 设置会员用户缓存
+     * 设置用户缓存
      */
     void setUser(User user);
 

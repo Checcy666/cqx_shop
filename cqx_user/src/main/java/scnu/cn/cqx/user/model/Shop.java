@@ -30,6 +30,11 @@ public class Shop implements Serializable {
     private String password;
 
     /**
+     * 手机号码
+     */
+    private String telephone;
+
+    /**
      * 商家简介
      */
     private String shopDescribe;
@@ -92,4 +97,11 @@ public class Shop implements Serializable {
         this.status = status;
     }
 
+    public String getTelephone() {
+        return telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
+    }
 }
