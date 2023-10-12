@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import scnu.cn.cqx.common.api.CommonResult;
 
 import scnu.cn.cqx.user.model.Shop;
-import scnu.cn.cqx.user.model.User;
 import scnu.cn.cqx.user.model.req.ShopRegistReq;
 import scnu.cn.cqx.user.model.req.UpdatePasswordReq;
 import scnu.cn.cqx.user.model.req.UserLoginReq;
